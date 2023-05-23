@@ -5,8 +5,27 @@ const UserProfile = () => {
   const [email, setEmail] = useState('');
 
   const handleUpdateProfile = () => {
-    // Perform the profile update logic
+    const user = auth.currentUser;
+  
+    if (user) {
+      // Update display name
+      user.updateProfile({
+        displayName: displayName,
+      }).then(() => {
+        console.log("Display name updated successfully");
+      }).catch((error) => {
+        console.log("Error updating display name: ", error);
+      });
+  
+      // Update email
+      user.updateEmail(email).then(() => {
+        console.log("Email updated successfully");
+      }).catch((error) => {
+        console.log("Error updating email: ", error);
+      });
+    }
   };
+  
 
   return (
     <div>

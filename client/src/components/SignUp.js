@@ -10,9 +10,27 @@ const SignUp = () => {
       await auth.createUserWithEmailAndPassword(email, password);
       // User registration successful
     } catch (error) {
-      console.log(error);
-      // Handle error during user registration
-    }
+        let errorMessage;
+        switch (error.code) {
+          case "auth/invalid-email":
+            errorMessage = "Invalid email.";
+            break;
+          case "auth/user-disabled":
+            errorMessage = "This user has been disabled.";
+            break;
+          case "auth/user-not-found":
+            errorMessage = "User not found.";
+            break;
+          case "auth/wrong-password":
+            errorMessage = "Wrong password.";
+            break;
+          default:
+            errorMessage = "An error occurred. Please try again.";
+        }
+        console.log(errorMessage);
+        // Display errorMessage to the user
+      }
+      
   };
 
   return (
@@ -44,9 +62,26 @@ const Login = () => {
       await auth.signInWithEmailAndPassword(email, password);
       // User login successful
     } catch (error) {
-      console.log(error);
-      // Handle error during user login
-    }
+        let errorMessage;
+        switch (error.code) {
+          case "auth/invalid-email":
+            errorMessage = "Invalid email.";
+            break;
+          case "auth/user-disabled":
+            errorMessage = "This user has been disabled.";
+            break;
+          case "auth/user-not-found":
+            errorMessage = "User not found.";
+            break;
+          case "auth/wrong-password":
+            errorMessage = "Wrong password.";
+            break;
+          default:
+            errorMessage = "An error occurred. Please try again.";
+        }
+        console.log(errorMessage);
+        // Display errorMessage to the user
+      }      
   };
 
   return (
