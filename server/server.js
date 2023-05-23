@@ -5,6 +5,8 @@ const { authMiddleware } = require("./utils/auth");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
+require('dotenv').config();
+
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -14,21 +16,10 @@ const server = new ApolloServer({
     //context: authMiddleware,
   });
 
-// connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/memorable_moments', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-mongoose.connection.once('open', function () {
-  console.log('Connected to the Database.');
-});
-mongoose.connection.on('error', function (error) {
-  console.log('Mongoose Connection Error : ' + error);
-});
-
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
+    const server = new ApolloServer({ typeDefs, resolvers });
+
     await server.start();
     server.applyMiddleware({ app });
   
@@ -40,7 +31,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
         );
       });
     });
-  };
-  
-  // Call the async function to start the server
-  startApolloServer(typeDefs, resolvers);
+};
+
+// Call the async function to start the server
+startApolloServer(typeDefs, resolvers).catch(error => console.error(error));
