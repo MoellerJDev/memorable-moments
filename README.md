@@ -24,7 +24,7 @@ To run the project locally, follow these steps:
 1. Clone the repository:
 
 2. Set up the backend:
-- Navigate to the backend directory: `cd memorable-moments/backend`
+- Navigate to the backend directory: `cd memorable-moments/server`
 - Install dependencies: `npm install`
 - Start the backend server: `node server.js`
 
@@ -42,5 +42,5 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 This project is licensed under the [MIT License](link-to-license-file). Feel free to modify and distribute it as per the terms of the license.
 
 ## Contact
-For any inquiries or feedback, please reach out to [Your Name](mailto:your-email@example.com).
+For any inquiries or feedback, please reach out to [Your Name](josh.t.m@outlook.com).
 
