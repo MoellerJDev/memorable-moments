@@ -1,0 +1,11 @@
+{
+  "name": "memorable-moment-backend",
+  "version": "1.0.0",
+  "description": "Memorable Moments Backend Server: A Node.js and Express.js server for the Memorable Moments photo journal application. Handles API requests, integrates with MongoDB for data storage, and provides user authentication and photo management functionalities.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Josh Moeller",
+  "license": "ISC"
+}
