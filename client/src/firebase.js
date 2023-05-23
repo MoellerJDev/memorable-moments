@@ -1,10 +1,12 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
+// Initialize Firebase
 const firebaseConfig = {
-  // Add your Firebase configuration here
+  // Your Firebase configuration
 };
 
 firebase.initializeApp(firebaseConfig);
 
-export default firebase;
+// Export the Firebase authentication instance
+export const auth = firebase.auth();

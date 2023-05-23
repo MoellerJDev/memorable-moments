@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const PhotoUpload = () => {
-  // Form submission logic and state management here
+  const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+
+  const handleUpload = () => {
+    // Perform the upload logic using the selected file
   };
 
   return (
     <div>
-      <h1>Photo Upload Page</h1>
-      <form onSubmit={handleSubmit}>
-        {/* Add form fields and validation */}
-        <button type="submit">Upload</button>
-      </form>
+      <h1>Photo Upload</h1>
+      <input type="file" onChange={handleFileChange} />
+      <button onClick={handleUpload}>Upload</button>
     </div>
   );
 };

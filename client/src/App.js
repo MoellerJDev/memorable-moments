@@ -6,6 +6,9 @@ import client from './graphql/client';
 import firebase from './firebase';
 
 // Import your components here
+import Home from './components/Home';
+import PhotoUpload from './components/PhotoUpload';
+import UserProfile from './components/UserProfile';
 
 const theme = createTheme();
 
@@ -15,7 +18,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router>
           <Switch>
-            {/* Define your routes and components here */}
+            <Route exact path="/" component={Home} />
+            <Route exact path="/upload" component={PhotoUpload} />
+            <Route exact path="/profile" component={UserProfile} />
           </Switch>
         </Router>
       </ThemeProvider>
