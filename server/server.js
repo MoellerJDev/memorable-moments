@@ -2,6 +2,7 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const mongoose = require('mongoose');
 const { authMiddleware } = require("./utils/auth");
+const errorHandlingMiddleware = require('./utils/errorHandling');
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -13,8 +14,16 @@ const port = process.env.PORT || 5000;
 const server = new ApolloServer({
     typeDefs,
     resolvers,
-    //context: authMiddleware,
+    context: ({ req }) => {
+        // authenticate the user
+        authMiddleware(req);
+    
+        // return the context object
+        return { user: req.user };
+      }
   });
+
+  app.use(errorHandlingMiddleware);
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
