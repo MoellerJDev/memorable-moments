@@ -3,19 +3,31 @@
 ## Overview
 Memorable Moments is an interactive photo journal application built with React, Node.js, and MongoDB. It allows users to create a personalized collection of their favorite memories, complete with photos, descriptions, and tags. This project showcases my skills in full-stack web development and demonstrates the implementation of features like user authentication, photo management, and database integration.
 
-# Memorable Moments
-
-## Overview
-Memorable Moments is an interactive photo journal application built with React, Node.js, and MongoDB. It allows users to create a captivating collection of their favorite memories, complete with photos, descriptions, and tags. The project aims to provide an engaging and intuitive user experience while showcasing the power of modern web technologies.
-
 ## Features
 - User authentication with Firebase
-- Photo upload and management
-- Search functionality to easily navigate memories
-- Integration with MongoDB for efficient data storage
-- Responsive design for optimal user experience on different devices
+- Photo upload, description, and tagging capabilities
+- Search and filter functionality for easy navigation of memories
+- Integration with MongoDB database for efficient data storage
+- Responsive design for optimal user experience on various devices
 
-## Installation
+## Goals
+The primary goals of this project are:
+1. To showcase proficiency in full-stack web development using React, Node.js, and MongoDB.
+2. To demonstrate the implementation of user authentication, allowing users to securely manage their photo journal.
+3. To provide an intuitive and visually appealing interface for uploading, browsing, and searching photos.
+4. To integrate with a MongoDB database to efficiently store and retrieve photo data.
+5. To ensure a responsive design that offers a seamless experience across different devices.
+6. To enable social sharing functionality, allowing users to share their favorite memories on popular social media platforms.
+7. To implement commenting and likes feature, fostering interaction and engagement within the app's community.
+8. To allow users to edit and update their existing memories, providing flexibility in modifying titles, descriptions, and tags.
+9. To enhance search and filtering capabilities, enabling advanced options such as date range, tags, and location.
+10. To provide options for sorting and ordering memories based on different criteria.
+11. To integrate with cloud storage services for secure and efficient photo storage.
+12. To implement notifications to keep users informed about activity related to their memories.
+13. To allow users to create multiple albums or categories for better organization of memories.
+
+## Getting Started
+To run the project locally, follow these steps:
 To run the Memorable Moments application locally, follow these steps:
 
 1. Clone the repository:
