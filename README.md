@@ -3,25 +3,26 @@
 ## Overview
 Memorable Moments is an interactive photo journal application built with React, Node.js, and MongoDB. It allows users to create a personalized collection of their favorite memories, complete with photos, descriptions, and tags. This project showcases my skills in full-stack web development and demonstrates the implementation of features like user authentication, photo management, and database integration.
 
+# Memorable Moments
+
+## Overview
+Memorable Moments is an interactive photo journal application built with React, Node.js, and MongoDB. It allows users to create a captivating collection of their favorite memories, complete with photos, descriptions, and tags. The project aims to provide an engaging and intuitive user experience while showcasing the power of modern web technologies.
+
 ## Features
 - User authentication with Firebase
-- Photo upload, description, and tagging capabilities
-- Search and filter functionality for easy navigation of memories
-- Integration with MongoDB database for efficient data storage
-- Responsive design for optimal user experience on various devices
+- Photo upload and management
+- Search functionality to easily navigate memories
+- Integration with MongoDB for efficient data storage
+- Responsive design for optimal user experience on different devices
 
-## Goals
-The primary goals of this project are:
-1. To showcase proficiency in full-stack web development using React, Node.js, and MongoDB.
-2. To demonstrate the implementation of user authentication, allowing users to securely manage their photo journal.
-3. To provide an intuitive and visually appealing interface for uploading, browsing, and searching photos.
-4. To integrate with a MongoDB database to efficiently store and retrieve photo data.
-5. To ensure a responsive design that offers a seamless experience across different devices.
-
-## Getting Started
-To run the project locally, follow these steps:
+## Installation
+To run the Memorable Moments application locally, follow these steps:
 
 1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/memorable-moments.git
+
 
 2. Set up the backend:
 - Navigate to the backend directory: `cd memorable-moments/server`
@@ -42,5 +43,5 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 This project is licensed under the [MIT License](link-to-license-file). Feel free to modify and distribute it as per the terms of the license.
 
 ## Contact
-For any inquiries or feedback, please reach out to [Your Name](josh.t.m@outlook.com).
+For any inquiries or feedback, please reach out to [Josh Moeller](josh.t.m@outlook.com).
 
