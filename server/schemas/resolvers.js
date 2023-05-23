@@ -12,7 +12,7 @@ const resolvers = {
     memory: async (parent, args) => await Memory.findById(args.id).populate('user'),
   },
   Mutation: {
-    registerUser: async (parent, args) => {
+    addUser: async (parent, args) => {
       // Hash the password before storing it
       args.password = await bcrypt.hash(args.password, 12);
       
@@ -40,10 +40,6 @@ const resolvers = {
       const token = jwt.sign({ id: user._id }, 'yourSecretKey');
   
       return { token, user };
-    },
-    addUser: async (parent, args) => {
-      let user = new User(args);
-      return await user.save();
     },
     addMemory: async (parent, args) => {
       let memory = new Memory(args);

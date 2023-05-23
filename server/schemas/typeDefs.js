@@ -24,7 +24,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    registerUser(username: String!, email: String!, password: String!): User
+    addUser(username: String!, email: String!, password: String!): User
+    login(email: String!, password: String!): User
     addMemory(title: String!, description: String, imageUrl: String, userId: ID!): Memory
   }
 `;
