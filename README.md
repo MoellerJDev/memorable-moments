@@ -14,6 +14,11 @@ This is the client-side of the Memorable Moments application, an interactive pho
 - React: A JavaScript library for building user interfaces.
 - React Router: A routing library for declarative navigation in React applications.
 - Material-UI: A popular UI component library for React applications.
+- Node.js: A JavaScript runtime environment for building server-side applications.
+- Express: A minimal and flexible Node.js web application framework.
+- MongoDB: A NoSQL database for storing application data.
+- Mongoose: An object data modeling (ODM) library for MongoDB and Node.js.
+- GraphQL: A query language for API development.
 - Apollo Client: A powerful GraphQL client for managing data in React applications.
 - Firebase: A comprehensive development platform for building web and mobile applications.
 

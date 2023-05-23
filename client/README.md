@@ -1,44 +1,37 @@
-# Memorable Moments - Client
+# Memorable Moments
 
-This is the client-side of the Memorable Moments application, an interactive photo journal built with React, Node.js, and MongoDB. It allows users to create a personalized collection of their favorite memories, complete with photos, descriptions, and tags.
+Memorable Moments is an interactive photo journal application built with React, Node.js, and MongoDB. Users can upload, tag, and search their favorite memories.
 
-## Features In Progress
+## Current Features
 
-- User authentication with Firebase.
-- Photo upload functionality using the Imgur API.
+- User profile management.
+- Photo upload functionality.
 - Viewing and searching memories by tags.
-- User profile management, including updating profile information.
 
 ## Technologies Used
 
-- React: A JavaScript library for building user interfaces.
-- React Router: A routing library for declarative navigation in React applications.
-- Material-UI: A popular UI component library for React applications.
-- Apollo Client: A powerful GraphQL client for managing data in React applications.
-- Firebase: A comprehensive development platform for building web and mobile applications.
+- Frontend: React, React Router, Material-UI, Apollo Client.
+- Backend: Node.js, Express.js, Apollo Server.
+- Database: MongoDB with Mongoose.
+- Authentication: Firebase.
+- Error Handling: Custom error handling middleware for authentication and validation errors.
 
 ## Getting Started
 
-To run the client-side of the Memorable Moments application, follow these steps:
+To run the Memorable Moments application, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/MoellerJDev/memorable-moments/tree/main/server`
 2. Navigate to the client directory: `cd memorable-moments/client`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
 
-Once the server is running, open your browser and visit the following URL to access the application:
-
-- [http://localhost:3000](http://localhost:3000)
-
 ## Next Steps
 
-Here are the next steps to continue building the client-side of the Memorable Moments app:
-
-1. Implement the remaining functionality, such as memory details view and editing.
-2. Enhance the user interface and design for a more polished look and feel.
-3. Add additional features, such as sorting memories by date or adding comments.
+1. Implement memory details view and editing.
+2. Enhance the user interface and design.
+3. Add additional features like sorting memories by date or adding comments.
 4. Perform thorough testing to ensure a stable and bug-free application.
-5. Optimize performance and responsiveness for a seamless user experience.
+5. Optimize performance and responsiveness.
 
 ## Contributing
 
