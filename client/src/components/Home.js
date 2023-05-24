@@ -6,14 +6,14 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    const db = firestore();
-    db.collection('memories').get().then((querySnapshot) => {
-      const memoriesData = [];
-      querySnapshot.forEach((doc) => {
-        memoriesData.push(doc.data());
-      });
+    const fetchData = async () => {
+      const db = firestore();
+      const querySnapshot = await db.collection('memories').get();
+      const memoriesData = querySnapshot.docs.map((doc) => doc.data());
       setMemories(memoriesData);
-    });
+    };
+
+    fetchData();
   }, []);
 
   const handleSearch = (e) => {
