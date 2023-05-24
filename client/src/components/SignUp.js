@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { auth } from '../auth/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -8,9 +9,10 @@ const SignUp = () => {
 
     const handleSignUp = async () => {
     try {
-      await auth.createUserWithEmailAndPassword(email, password);
+      await createUserWithEmailAndPassword(auth, email, password);
       // User registration successful
     } catch (error) {
+        console.error(error); // Add this line
         let errorMessage;
         switch (error.code) {
           case "auth/invalid-email":
@@ -30,6 +32,7 @@ const SignUp = () => {
         }
         setErrorMessage(errorMessage);
       }
+
 
     };
 
