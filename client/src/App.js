@@ -3,7 +3,7 @@ import { ApolloProvider } from '@apollo/client';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import client from './graphql/client';
-import firebase from './firebase';
+import firebase from './auth/firebase';
 
 // Import your components here
 import Home from './components/Home';
