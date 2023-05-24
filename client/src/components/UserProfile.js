@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../auth/AuthContext';
 
 const UserProfile = () => {
-  const [displayName, setDisplayName] = useState('');
-  const [email, setEmail] = useState('');
+   const [displayName, setDisplayName] = useState('');
+   const [email, setEmail] = useState('');
+   const { currentUser } = useContext(AuthContext);
 
-  const handleUpdateProfile = () => {
-    const user = auth.currentUser;
-  
-    if (user) {
+   const handleUpdateProfile = () => {
+     const user = currentUser;
+
+     if (user) {
       // Update display name
       user.updateProfile({
         displayName: displayName,

@@ -2,7 +2,7 @@ import React from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import client from './graphql/client';
+import client from './apollo';
 import firebase from './auth/firebase';
 
 // Import your components here

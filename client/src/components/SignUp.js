@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { auth } from '../firebase';
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-  const handleSignUp = async () => {
+    const handleSignUp = async () => {
     try {
       await auth.createUserWithEmailAndPassword(email, password);
       // User registration successful
@@ -30,10 +30,10 @@ const SignUp = () => {
         console.log(errorMessage);
         // Display errorMessage to the user
       }
-      
-  };
 
-  return (
+    };
+
+    return (
     <div>
       <h1>Sign Up</h1>
       <input
@@ -50,7 +50,7 @@ const SignUp = () => {
       />
       <button onClick={handleSignUp}>Sign Up</button>
     </div>
-  );
+    );
 };
 
 const Login = () => {

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { db } from '../firebase';  // Assuming you have a firebase.js file exporting your Firebase configurations
+import { firebase } from '../auth/firebase';  // Assuming you have a firebase.js file exporting your Firebase configurations
 
 const Home = () => {
   const [memories, setMemories] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    db.collection('memories').get().then((querySnapshot) => {
+    firebase.collection('memories').get().then((querySnapshot) => {
       const memoriesData = [];
       querySnapshot.forEach((doc) => {
         memoriesData.push(doc.data());
