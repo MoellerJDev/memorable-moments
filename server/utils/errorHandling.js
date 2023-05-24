@@ -1,4 +1,4 @@
-const { AuthenticationError, ValidationError } = require('./errors');
+const { AuthenticationError, ValidationError } = require('../config/errors');
 
 const errorHandlingMiddleware = (err, req, res, next) => {
   if (err instanceof AuthenticationError) {

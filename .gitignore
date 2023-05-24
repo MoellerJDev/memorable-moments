@@ -1,5 +1,6 @@
 # Ignore node_modules directory
 node_modules/
+/*/node_modules
 
 # Ignore build artifacts
 build/
@@ -17,6 +18,7 @@ out/
 # Ignore dependency lock files
 yarn.lock
 package-lock.json
+/*/package-lock.json
 
 # Ignore operating system and editor temporary files
 .DS_Store
