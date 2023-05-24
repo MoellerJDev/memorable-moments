@@ -1,18 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
-import AppRouter from './AppRouter';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloProvider } from '@apollo/client';
-import { app } from './auth/firebase';
-
 import client from './apollo';
 
-ReactDOM.render(
-  <ApolloProvider client={client}>
-    <AppRouter />
-  </ApolloProvider>,
-  document.getElementById('root')
-);
+const root = document.getElementById('root');
+if (root !== null) {
+  const appRoot = ReactDOM.createRoot(root);
+  appRoot.render(
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  );
+}
 
 reportWebVitals();

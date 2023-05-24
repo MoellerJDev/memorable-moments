@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { firestore } from '../auth/firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 const Home = () => {
   const [memories, setMemories] = useState([]);
@@ -7,8 +8,8 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const db = firestore();
-      const querySnapshot = await db.collection('memories').get();
+      const memoriesCollection = collection(firestore, 'memories');
+      const querySnapshot = await getDocs(memoriesCollection);
       const memoriesData = querySnapshot.docs.map((doc) => doc.data());
       setMemories(memoriesData);
     };

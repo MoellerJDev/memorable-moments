@@ -1,5 +1,5 @@
-import { getAnalytics } from 'firebase/analytics';
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApps } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -12,8 +12,15 @@ const firebaseConfig = {
   measurementId: "G-1LK5ZVJD9S"
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+let app;
+
+if (!getApps().length) {
+  app = initializeApp(firebaseConfig);
+} else {
+  app = getApps()[0]; // if already initialized, use that one
+}
+
+const auth = getAuth(app);
 const firestore = getFirestore(app);
 
-export { app, analytics, firestore };
+export { auth, firestore };
