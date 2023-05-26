@@ -1,14 +1,20 @@
-import React, { useState, useContext } from 'react'; // Import useContext
+import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import PersonIcon from '@mui/icons-material/Person';
 import SignInDialog from './SignInDialog';
 import SignUpDialog from './SignUpDialog';
-import { AuthContext } from '../auth/AuthContext'; // Import AuthContext
+import { AuthContext } from '../auth/AuthContext';
 
 const Navbar = () => {
   const [signInOpen, setSignInOpen] = useState(false);
   const [signUpOpen, setSignUpOpen] = useState(false);
+  const history = useHistory();
 
-  const { currentUser } = useContext(AuthContext); // Access currentUser from AuthContext
+  const { currentUser } = useContext(AuthContext);
 
   const handleSignInOpen = () => {
     setSignInOpen(true);
@@ -26,24 +32,33 @@ const Navbar = () => {
     setSignUpOpen(false);
   };
 
-  return (
-    <div>
-      {/* Show Sign In button only if no user is signed in */}
-      {!currentUser && (
-        <>
-          <Button onClick={handleSignInOpen}>Sign In</Button>
-          <SignInDialog open={signInOpen} handleClose={handleSignInClose} />
-        </>
-      )}
+  const handleProfileClick = () => {
+    if (currentUser) {
+      history.push('/profile'); // Replace with the correct path to the profile page
+    } else {
+      handleSignInOpen();
+    }
+  };
 
-      {/* Show Sign Up button only if no user is signed in */}
-      {!currentUser && (
-        <>
-          <Button onClick={handleSignUpOpen}>Sign Up</Button>
-          <SignUpDialog open={signUpOpen} handleClose={handleSignUpClose} />
-        </>
-      )}
-    </div>
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        {/* Show Sign In and Sign Up buttons only if no user is signed in */}
+        {!currentUser && (
+          <>
+            <Button onClick={handleSignInOpen}>Sign In</Button>
+            <SignInDialog open={signInOpen} handleClose={handleSignInClose} />
+            <Button onClick={handleSignUpOpen}>Sign Up</Button>
+            <SignUpDialog open={signUpOpen} handleClose={handleSignUpClose} />
+          </>
+        )}
+
+        {/* Profile button */}
+        <IconButton color="inherit" edge="end" onClick={handleProfileClick}>
+          <PersonIcon />
+        </IconButton>
+      </Toolbar>
+    </AppBar>
   );
 };
 
