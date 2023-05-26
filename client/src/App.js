@@ -13,6 +13,7 @@ import UserProfile from './components/UserProfile';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import PrivateRoute from './routes/PrivateRoute';
+import Navbar from './components/Navbar';
 
 const theme = createTheme();
 
@@ -22,6 +23,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <AuthProvider>
           <Router>
+            <Navbar />  {/* Use Navbar here */}
             <Switch>
               <PrivateRoute exact path="/" component={Home} />
               <PrivateRoute exact path="/upload" component={PhotoUpload} />
