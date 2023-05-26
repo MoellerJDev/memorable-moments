@@ -1,5 +1,5 @@
 import React, { useCallback, useContext } from 'react';
-import { withRouter, Redirect } from 'react-router';
+import { useHistory, Redirect } from 'react-router-dom';
 import { auth } from '../auth/firebase';
 import { AuthContext } from '../auth/AuthContext';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -7,7 +7,9 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
-const SignIn = ({ history }) => {
+const SignIn = () => {
+  const history = useHistory();
+
   const handleSignIn = useCallback(
     async event => {
       event.preventDefault();
@@ -37,5 +39,4 @@ const SignIn = ({ history }) => {
   );
 };
 
-export default withRouter(SignIn);
-// Compare this snippet from client\src\components\SignOut.js:
+export default SignIn;

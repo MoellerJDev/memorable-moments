@@ -11,7 +11,7 @@ const SignUpDialog = ({ open, handleClose }) => {
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>Sign Up</DialogTitle>
       <DialogContent>
-        <SignUp />
+        <SignUp handleClose={handleClose} />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>

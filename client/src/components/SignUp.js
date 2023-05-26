@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom'; // Import withRouter
 import { auth } from '../auth/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
-const SignUp = () => {
+const SignUp = ({ history, handleClose }) => { // Add handleClose prop
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -13,7 +14,12 @@ const SignUp = () => {
   const handleSignUp = async () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      // User registration successful
+      await signInWithEmailAndPassword(auth, email, password);
+      setErrorMessage('');
+      // Close the modal
+      handleClose();
+      // Redirect to home page
+      history.push('/');
     } catch (error) {
       console.error(error);
       let errorMessage;
@@ -30,6 +36,9 @@ const SignUp = () => {
         case "auth/wrong-password":
           errorMessage = "Wrong password.";
           break;
+        case "auth/email-already-in-use":
+            errorMessage = "Email already in use.";
+            break;
         default:
           errorMessage = "An error occurred. Please try again.";
       }
@@ -58,4 +67,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default withRouter(SignUp); // Wrap SignUp with withRouter

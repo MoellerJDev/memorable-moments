@@ -11,7 +11,7 @@ const SignInDialog = ({ open, handleClose }) => {
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>Sign In</DialogTitle>
       <DialogContent>
-        <SignIn />
+        <SignIn handleClose={handleClose} />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>
