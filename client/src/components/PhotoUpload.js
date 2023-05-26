@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 
 const PhotoUpload = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -11,7 +13,7 @@ const PhotoUpload = () => {
     if (selectedFile) {
       const formData = new FormData();
       formData.append('image', selectedFile);
-  
+
       fetch('https://api.imgur.com/3/image/', {
         method: 'POST',
         headers: {
@@ -19,26 +21,25 @@ const PhotoUpload = () => {
         },
         body: formData,
       })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            console.log('Image URL: ', data.data.link);
-            // Store the image URL or use it as needed
-          } else {
-            console.error('Upload failed');
-          }
-        })
-        .catch(error => console.error('Error:', error));
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          console.log('Image URL: ', data.data.link);
+          // Store the image URL or use it as needed
+        } else {
+          console.error('Upload failed');
+        }
+      })
+      .catch(error => console.error('Error:', error));
     }
   };
-  
 
   return (
-    <div>
+    <Box>
       <h1>Photo Upload</h1>
       <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload</button>
-    </div>
+      <Button variant="contained" color="primary" onClick={handleUpload}>Upload</Button>
+    </Box>
   );
 };
 

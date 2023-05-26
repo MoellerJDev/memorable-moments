@@ -1,6 +1,9 @@
 import React from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import client from './apollo';
@@ -23,7 +26,14 @@ function App() {
       <ThemeProvider theme={theme}>
         <AuthProvider>
           <Router>
-            <Navbar />  {/* Use Navbar here */}
+            <Navbar />
+            <AppBar position="static">
+              <Toolbar>
+                <Typography variant="h6">
+                  Memory App
+                </Typography>
+              </Toolbar>
+            </AppBar>
             <Switch>
               <PrivateRoute exact path="/" component={Home} />
               <PrivateRoute exact path="/upload" component={PhotoUpload} />
