@@ -1,31 +1,35 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
+import SignInDialog from './SignInDialog';
+import SignUpDialog from './SignUpDialog';
 
 const Navbar = () => {
+  const [signInOpen, setSignInOpen] = useState(false);
+  const [signUpOpen, setSignUpOpen] = useState(false);
+
+  const handleSignInOpen = () => {
+    setSignInOpen(true);
+  };
+
+  const handleSignInClose = () => {
+    setSignInOpen(false);
+  };
+
+  const handleSignUpOpen = () => {
+    setSignUpOpen(true);
+  };
+
+  const handleSignUpClose = () => {
+    setSignUpOpen(false);
+  };
+
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
-          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-            Memorable Moments
-          </Link>
-        </Typography>
-        <Button color="inherit">
-          <Link to="/signin" style={{ textDecoration: 'none', color: 'inherit' }}>
-            SignIn
-          </Link>
-        </Button>
-        <Button color="inherit">
-          <Link to="/signup" style={{ textDecoration: 'none', color: 'inherit' }}>
-            SignUp
-          </Link>
-        </Button>
-      </Toolbar>
-    </AppBar>
+    <div>
+      <Button onClick={handleSignInOpen}>Sign In</Button>
+      <SignInDialog open={signInOpen} handleClose={handleSignInClose} />
+      <Button onClick={handleSignUpOpen}>Sign Up</Button>
+      <SignUpDialog open={signUpOpen} handleClose={handleSignUpClose} />
+    </div>
   );
 };
 
