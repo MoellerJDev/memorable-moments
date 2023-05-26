@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
 import { auth } from '../auth/firebase';
 import { AuthContext } from '../auth/AuthContext';
@@ -9,19 +9,21 @@ import Box from '@mui/material/Box';
 
 const SignIn = () => {
   const history = useHistory();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSignIn = useCallback(
     async event => {
       event.preventDefault();
-      const { email, password } = event.target.elements;
       try {
-        await signInWithEmailAndPassword(auth, email.value, password.value);
+        await signInWithEmailAndPassword(auth, email, password);
         history.push('/');
       } catch (error) {
-        alert(error);
+        setErrorMessage(error.message);
       }
     },
-    [history]
+    [history, email, password]
   );
 
   const { currentUser } = useContext(AuthContext);
@@ -32,9 +34,21 @@ const SignIn = () => {
 
   return (
     <Box component="form" onSubmit={handleSignIn} noValidate autoComplete="off">
-      <TextField label="Email" name="email" type="email" />
-      <TextField label="Password" name="password" type="password" />
-      <Button type="submit" variant="contained" color="primary">Sign in</Button>
+      <h1>Sign In</h1>
+      {errorMessage && <p>{errorMessage}</p>}
+      <TextField
+        label="Email"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <TextField
+        label="Password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <Button type="submit" variant="contained" color="primary">Sign In</Button>
     </Box>
   );
 };
