@@ -26,18 +26,19 @@ const Home = () => {
   );
 
   return (
-    <div>
-      <input type="text" placeholder="Search by tag" onChange={handleSearch} />
-      {filteredMemories.map((memory, index) => (
-        <div key={index}>
-          <h2>{memory.title}</h2>
-          <img src={memory.photoUrl} alt={memory.title} />
-          <p>{memory.description}</p>
-          <p>Tags: {memory.tags.join(', ')}</p>
-        </div>
-      ))}
+    <div className="home-container">
+        <input className="search-input" type="text" placeholder="Search by tag" onChange={handleSearch} />
+        {filteredMemories.map((memory, index) => (
+            <div className="memory-item" key={index}>
+            <h2>{memory.title}</h2>
+            <img src={memory.photoUrl} alt={memory.title} />
+            <p>{memory.description}</p>
+            <p>Tags: {memory.tags.join(', ')}</p>
+            </div>
+        ))}
     </div>
   );
+
 };
 
 export default Home;

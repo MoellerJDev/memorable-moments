@@ -1,5 +1,16 @@
 {
+  "name": "memorable-moments",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm run start-server\" \"npm run start-client\"",
+    "start-server": "node server/server.js",
+    "start-client": "cd client && npm start",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
   "dependencies": {
     "mongoose": "^7.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1"
   }
 }
