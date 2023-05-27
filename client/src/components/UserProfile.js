@@ -1,16 +1,24 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../auth/AuthContext';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import { auth } from '../auth/firebase';
 
 const UserProfile = () => {
   const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const { currentUser } = useContext(AuthContext);
 
+  useEffect(() => {
+    if (currentUser) {
+      setDisplayName(currentUser.displayName);
+      setEmail(currentUser.email);
+    }
+  }, [currentUser]);
+
   const handleUpdateProfile = () => {
-    const user = currentUser;
+    const user = auth.currentUser;
 
     if (user) {
       // Update display name

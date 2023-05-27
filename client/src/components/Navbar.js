@@ -41,25 +41,40 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static">
-      <Toolbar>
-        {/* Show Sign In and Sign Up buttons only if no user is signed in */}
-        {!currentUser && (
-          <>
-            <Button onClick={handleSignInOpen}>Sign In</Button>
-            <SignInDialog open={signInOpen} handleClose={handleSignInClose} />
-            <Button onClick={handleSignUpOpen}>Sign Up</Button>
-            <SignUpDialog open={signUpOpen} handleClose={handleSignUpClose} />
-          </>
-        )}
+  <AppBar position="static">
+    <Toolbar sx={{ width: '100%', justifyContent: 'space-between' }}>
+      {/* Show Sign In and Sign Up buttons only if no user is signed in */}
+      {!currentUser && (
+        <>
+          <Button onClick={handleSignInOpen} sx={{ mr: 1 }}>Sign In</Button>
+          <SignInDialog open={signInOpen} handleClose={handleSignInClose} />
+          <Button onClick={handleSignUpOpen} sx={{ ml: 1 }}>Sign Up</Button>
+          <SignUpDialog open={signUpOpen} handleClose={handleSignUpClose} />
+        </>
+      )}
 
-        {/* Profile button */}
-        <IconButton color="inherit" edge="end" onClick={handleProfileClick}>
-          <PersonIcon />
-        </IconButton>
-      </Toolbar>
-    </AppBar>
-  );
+      {/* Show user avatar and dropdown menu if user is signed in */}
+      {currentUser && (
+        <>
+          <IconButton color="inherit" edge="end" onClick={handleProfileClick}>
+            {currentUser.photoURL ? (
+              <Avatar alt={currentUser.displayName} src={currentUser.photoURL} />
+            ) : (
+              <PersonIcon />
+            )}
+          </IconButton>
+          <Menu
+            anchorEl={profileAnchorEl}
+            open={Boolean(profileAnchorEl)}
+            onClose={handleProfileClose}
+          >
+            <MenuItem onClick={handleProfileClose}>Profile</MenuItem>
+            <MenuItem onClick={handleSignOut}>Sign Out</MenuItem>
+          </Menu>
+        </>
+      )}
+    </Toolbar>
+  </AppBar>
+);
 };
-
 export default Navbar;
