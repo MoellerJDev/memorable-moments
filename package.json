@@ -8,6 +8,7 @@
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
+    "@mui/material": "^5.13.2",
     "mongoose": "^7.2.0"
   },
   "devDependencies": {
